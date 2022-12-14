@@ -203,7 +203,7 @@ func DownloadMsgAsFile(w http.ResponseWriter, r *http.Request) {
 
 	// to set file name
 	file_name := "allmessages" + time.Now().String()
-	attachment := fmt.Sprintf("attachment; filename=%s", file_name)
+	attachment := fmt.Sprintf("attachment; filename=%s.json", file_name)
 
 	w.Header().Set("Content-Disposition", attachment)
 
