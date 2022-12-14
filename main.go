@@ -7,19 +7,23 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+
+	"github.com/joho/godotenv"
 )
 
 func main() {
 
 	fmt.Println("Starting Communicating Api....")
 
-	// err1 := godotenv.Load()
+	if os.Getenv("APP_ENV") != "production" {
+		err1 := godotenv.Load()
 
-	// if err1 != nil {
-	// 	println(err1)
-	// 	return
+		if err1 != nil {
+			println(err1)
+			return
 
-	// }
+		}
+	}
 
 	models.COLLECTION_NAME = os.Getenv("COLLECTION_NAME")
 	models.DB_NAME = os.Getenv("DB_NAME")
